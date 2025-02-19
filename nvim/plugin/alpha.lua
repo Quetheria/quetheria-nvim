@@ -239,10 +239,11 @@ end
 		       shrink_margin = false,
 		       hl = hlarr,
 		       position = "center" },
-	      	     }
+	      	     }, lines
 	end
+local header, hlines = headerfunc()
 local section = {
-    header = headerfunc(),
+    header = header,
     top_buttons = {
         type = "group",
         val = {
@@ -296,15 +297,63 @@ local section = {
         val = {},
     },
 }
+
+
+--TODO im not thinking about this right now
+-- get number of vertical lines in alpha section
+--[[
+function Section_lines (count, tab)
+  if not (tab["type"] ~= nil and tab["val"] ~= nil) then
+    if tab.type == "text" then
+      local _, lines = tab.val:gsub('\n', '\n')
+      return lines
+    end
+    if tab.type == "group" then
+      return count + Section_lines(count, tab.val)
+    end
+
+  elseif type(tab) ==  "string" then
+    local _, lines = tab:gsub('\n', '\n')
+    return lines
+  else
+    return 0
+  end
+end
+
+local dyn_padding = function (seclist)
+  local sum = 0
+  for x=1,#seclist do
+    sum = sum + Section_lines(0, seclist[x])
+  end
+
+  return 61 - sum
+
+endocal section_lines = function(tab)
+      
+    end
+  end
+
+end
+local dyn_padding = function (seclist)
+  local sum = 0
+  for x in seclist do
+    sum = sum + section_lines(x)
+  end
+
+  return vim.fn.winheight - sum
+
+end
+--]]
 local config = {
 	layout = {
 	  { type = "padding", val = 1 },
           section.header,
-          { type = "padding", val = 2 },
+          -- TODO do this programmatically 
+          { type = "padding", val = vim.fn.winheight(0) - 11 - 22 - hlines},
           section.top_buttons,
           section.mru_cwd,
+          { type = "padding", val = 1},
           section.mru,
-          { type = "padding", val = 1 },
           section.bottom_buttons,
           section.footer,
 	},
