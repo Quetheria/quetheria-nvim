@@ -9,6 +9,14 @@ local leader = "SPC"
 -- and lots of things from https://github.com/dtr2300/nvim/blob/main/lua/config/plugins/alpha.lua
 -- also headers include references to Tom Bloom's Kill Six Billion Demons, 
 -- and some ascii cats from  https://user.xmission.com/~emailbox/ascii_cats.htm
+
+-- highlight group definitions
+vim.api.nvim_set_hl(0, "buttoncore", {fg = '#c678dd', bold=true})
+
+vim.api.nvim_set_hl(0, "buttonwrap", {fg = '#cba6f7'})
+
+
+
 local function button(sc, txt, keybind, keybind_opts)
     local sc_ = sc:gsub("%s", ""):gsub(leader, "<leader>")
 
@@ -18,7 +26,7 @@ local function button(sc, txt, keybind, keybind_opts)
         cursor = 1,
         -- width = 50,
         align_shortcut = "left",
-        hl_shortcut = { { "Operator", 0, 1 }, { "Number", 1, #sc + 1 }, { "Operator", #sc + 1, #sc + 2 } },
+        hl_shortcut = { { "buttonwrap", 0, 1 }, { "buttoncore", 1, #sc + 1 }, { "buttonwrap", #sc + 1, #sc + 2 } },
         shrink_margin = false,
     }
     if keybind then
@@ -148,19 +156,19 @@ end
     	math.randomseed( os.time() )
 		local headers = {
 		          {
-		                [[  \\    /\\]],
+		                [[  \    /\]],
 		                [[   )  ( ')]],
 		                [[   (  /  )]],
-		                [[jgs \\(__)|]],
+		                [[jgs \(__)|]],
 	            },
 	            {
                 [[((      /|_/|]],
-                [[ \\\\.._.'  , ,\\]],
-                [[ /\\ | '.__ v /]],
+                [[ \\.._.'  , ,\]],
+                [[ /\ | '.__ v /]],
                 [[(_ .   /   "]],
                 [[ ) _)._  _ /]],
-                [['.\\ \\|( / ( mrf]],
-                [[  '' ''\\\\ \\\\]],
+                [['.\ \|( / ( mrf]],
+                [[  '' ''\\ \\]],
                 },
                 -- you *gotta* go to the moon
                 {
@@ -173,37 +181,37 @@ end
                 [[                 MMMM88&&&&&&&                 ]],
                 [[     *           MMM88&&&&&&&&                 ]],
                 [[             ^   MMM88&&&&&&&&                 ]],
-                [[            / \\  'MMM88&&&&&&'                 ]],
-                [[           /   \\   'MMM8&&&'      *    _       ]],
-                [[        __/     \\__                    \\\\      ]],
-                [[         =) ^Y^ (=   |\\_/|              ||    ']],
-                [[          \\  ^  /    )a a '._.-""""-.  //      ]],
-                [[           )=*=(    =\\T_= /    ~  ~  \\//       ]],
-                [[          /     \\     `"`\\   ~   / ~  /        ]],
+                [[            / \  'MMM88&&&&&&'                 ]],
+                [[           /   \   'MMM8&&&'      *     _       ]],
+                [[        __/     \__                     \\      ]],
+                [[         =) ^Y^ (=   |\_/|              ||    ']],
+                [[          \  ^  /    )a a '._.-""""-.  //      ]],
+                [[           )=*=(    =\\T_= /    ~  ~  \//       ]],
+                [[          /     \     `"`\\   ~   / ~  /        ]],
                 [[          |     |         |~   \\ |  ~/         ]],
-                [[         /| | | |\\         \\  ~/- \\ ~\\         ]],
-                [[         \\| | |_|/|        || |  // /`         ]],
-                [[  jgs_/\\_//_// __//\\_/\\_/\\_((_|\\((_//\\_/\\_/\\_  ]],
-                [[  |  |  |  | \\_) |  |  |  |  |  |  |  |  |  |  ]],
+                [[         /| | | |\         \  ~/- \ ~\         ]],
+                [[         \| | |_|/|        || |  // /`         ]],
+                [[  jgs_/\_//_// __//\_/\_/\_((_|\((_//\_/\_/\_  ]],
+                [[  |  |  |  | \_) |  |  |  |  |  |  |  |  |  |  ]],
                 [[  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  ]],
                 [[  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  ]],
                 [[  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  ]],
                 [[  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  ]],
                 },
                 {
-                [[     /\\__/\\          ]],
-                [[    /`    '\\         ]],
+                [[     /\__/\          ]],
+                [[    /`    '\         ]],
                 [[  === 0  0 ===       ]],
-                [[    \\  --  /         ]],
-                [[   /        \\        ]],
-                [[  /          \\       ]],
+                [[    \  --  /         ]],
+                [[   /        \        ]],
+                [[  /          \       ]],
                 [[ |            |      ]],
-                [[  \\  ||  ||  /       ]],
-                [[   \\_oo__oo_/#######o]],
+                [[  \  ||  ||  /       ]],
+                [[   \_oo__oo_/#######o]],
                 },
 		        -- blockified kill six billion demons quotes using https://patorjk.com/software/taag/
 		        {
-		        	[[┏┓┓              ┓                     ]],
+		          	[[┏┓┓              ┓                     ]],
 		            [[┃┓┃┏┓┏┓┓┏  ╋┏┓  ╋┣┓┏┓                  ]],
 		            [[┗┛┗┗┛┛ ┗┫  ┗┗┛  ┗┛┗┗                   ]],
 		            [[┳┓•  •  ┛   ┏┓                         ]],
@@ -252,7 +260,7 @@ local section = {
         type = "group",
         val = {
             { type = "padding", val = 1 },
-            { type = "text", val = "mru", opts = { hl = "specialcomment" } },
+            { type = "text", val = "mru", opts = { hl = "Repeat" } },
             { type = "padding", val = 1 },
             {
                 type = "group",
@@ -266,7 +274,7 @@ local section = {
         type = "group",
         val = {
             { type = "padding", val = 1 },
-            { type = "text", val = mru_title, opts = { hl = "specialcomment", shrink_margin = false } },
+            { type = "text", val = mru_title, opts = { hl = "Exception", shrink_margin = false } },
             { type = "padding", val = 1 },
             {
                 type = "group",
