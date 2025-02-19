@@ -142,7 +142,7 @@ local function mru(start, cwd, items_number, opts)
 end
 
 local function mru_title()
-    return "MRU " .. vim.fn.getcwd()
+    return "mru " .. vim.fn.getcwd()
 end
 
     	math.randomseed( os.time() )
