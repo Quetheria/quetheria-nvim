@@ -4,6 +4,7 @@ local if_nil = vim.F.if_nil
 local fnamemodify = vim.fn.fnamemodify
 local filereadable = vim.fn.filereadable
 
+local leader = "SPC"
 -- some snippets from https://github.com/BeyondMagic/lovemii/blob/3763a6dfe2986081e13de14f0324eb1a72ace020/_config/nvim/lua/screen.lua 
 -- and lots of things from https://github.com/dtr2300/nvim/blob/main/lua/config/plugins/alpha.lua
 -- also headers include references to Tom Bloom's Kill Six Billion Demons, 
@@ -144,29 +145,26 @@ local function mru_title()
     return "MRU " .. vim.fn.getcwd()
 end
 
-    	math.randomseed( os.time() )   
+    	math.randomseed( os.time() )
 		local headers = {
 		          {
 		                [[  \\    /\\]],
 		                [[   )  ( ')]],
 		                [[   (  /  )]],
 		                [[jgs \\(__)|]],
-		
 	            },
-	
 	            {
                 [[((      /|_/|]],
                 [[ \\\\.._.'  , ,\\]],
                 [[ /\\ | '.__ v /]],
-                [[(_ .   /   "]],    
+                [[(_ .   /   "]],
                 [[ ) _)._  _ /]],
                 [['.\\ \\|( / ( mrf]],
                 [[  '' ''\\\\ \\\\]],
                 },
-                
                 -- you *gotta* go to the moon
                 {
-                [[Consider reading popular webcomic]], 
+                [[Consider reading popular webcomic]],
                 [[Kill Six Billion Demons by ABBADON ]],
                 [[-- Moon Wizard Cat]],
                 [[                                               ]],
@@ -192,7 +190,6 @@ end
                 [[  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  ]],
                 [[  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  ]],
                 },
-                
                 {
                 [[     /\\__/\\          ]],
                 [[    /`    '\\         ]],
@@ -203,37 +200,34 @@ end
                 [[ |            |      ]],
                 [[  \\  ||  ||  /       ]],
                 [[   \\_oo__oo_/#######o]],
-                
                 },
-                
 		        -- blockified kill six billion demons quotes using https://patorjk.com/software/taag/
 		        {
 		        	[[┏┓┓              ┓                     ]],
 		            [[┃┓┃┏┓┏┓┓┏  ╋┏┓  ╋┣┓┏┓                  ]],
 		            [[┗┛┗┗┛┛ ┗┫  ┗┗┛  ┗┛┗┗                   ]],
-		            [[┳┓•  •  ┛   ┏┓                         ]], 
-		            [[┃┃┓┓┏┓┏┓┏┓  ┃ ┏┓┏┓┏┓┏┏┓                ]], 
-		            [[┻┛┗┗┛┗┛┗┗   ┗┛┗┛┛ ┣┛┛┗ ╻               ]], 
-		            [[┏┓┓   ┳┓      ┓   ┛     ┏  ┳  ┏•  •    ]], 
+		            [[┳┓•  •  ┛   ┏┓                         ]],
+		            [[┃┃┓┓┏┓┏┓┏┓  ┃ ┏┓┏┓┏┓┏┏┓                ]],
+		            [[┻┛┗┗┛┗┛┗┗   ┗┛┗┛┛ ┣┛┛┗ ╻               ]],
+		            [[┏┓┓   ┳┓      ┓   ┛     ┏  ┳  ┏•  •    ]],
 		            [[┃┃┣┓  ┣┫┏┓┏┓┏┓┃┏┏┓┏┓  ┏┓╋  ┃┏┓╋┓┏┓┓╋┏┓┏]],
 		            [[┗┛┛┗  ┻┛┛ ┗ ┗┻┛┗┗ ┛   ┗┛┛  ┻┛┗┛┗┛┗┗┗┗ ┛]],
 		        },
-                                   
 
 
     }
 
-    local headerfunc = function() 
+    local headerfunc = function()
 	    local header = headers[math.random(#headers)]
 	    local hlarr = {{}}
 	    local lines = # header
 	    for x=1,lines do
-	      hlarr[x] = {{"Repeat", 0, header[x]:len()}} 
+	      hlarr[x] = {{"Repeat", 0, header[x]:len()}}
 	    end
-	    return   {	  
+	    return   {
 	       type = "text",
 	       val = header,
-	       opts = { 
+	       opts = {
 		       shrink_margin = false,
 		       hl = hlarr,
 		       position = "center" },
@@ -322,7 +316,7 @@ local config = {
 		    callback = function()
 		      vim.go.laststatus = 3
 		      vim.opt.showtabline = 2
-		    end, 
+		    end,
 	          })
                   vim.api.nvim_create_autocmd('DirChanged', {
                   pattern = '*',
@@ -331,16 +325,13 @@ local config = {
                       require('alpha').redraw()
                       vim.cmd('AlphaRemap')
                   end,
- 
 		  })
 		end,
 	margin = 5,
 	},
 }
-	
 
 
-	
 require("alpha").setup(config)
 
-}
+
