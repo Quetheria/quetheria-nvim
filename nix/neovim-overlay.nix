@@ -58,8 +58,12 @@ with final.pkgs.lib; let
     nvim-navic # Add LSP location to lualine | https://github.com/SmiteshP/nvim-navic
     statuscol-nvim # Status column | https://github.com/luukvbaal/statuscol.nvim/
     nvim-treesitter-context # nvim-treesitter-context
+    alpha-nvim
+    cattpuccin-nvim 
     # ^ UI
     # language support
+    vim-ccls
+    rustaceanvim
     # ^ language support
     # navigation/editing enhancement plugins
     vim-unimpaired # predefined ] and [ navigation keymaps | https://github.com/tpope/vim-unimpaired/
@@ -86,7 +90,10 @@ with final.pkgs.lib; let
   extraPackages = with pkgs; [
     # language servers, etc.
     lua-language-server
-    nil # nix LSP
+    nixd # nix LSP
+    alejandra
+    java-language-server
+    ccls
   ];
 in {
   # This is the neovim derivation
