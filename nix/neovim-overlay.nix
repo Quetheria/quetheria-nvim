@@ -64,6 +64,8 @@ with final.pkgs.lib; let
     # language support
     vim-ccls
     rustaceanvim
+    typescript-tools-nvim
+    cmp-npm
     # ^ language support
     # navigation/editing enhancement plugins
     vim-unimpaired # predefined ] and [ navigation keymaps | https://github.com/tpope/vim-unimpaired/
@@ -97,6 +99,8 @@ with final.pkgs.lib; let
     alejandra
     java-language-server
     ccls
+    superhtml
+    nodejs_23
   ];
 in {
   # This is the neovim derivation

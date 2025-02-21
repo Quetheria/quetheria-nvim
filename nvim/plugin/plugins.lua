@@ -21,3 +21,4 @@ require("nvim-tree").setup({
 })
 require("barbar").setup()
 require('nvim-surround').setup()
+require("typescript-tools").setup {}
