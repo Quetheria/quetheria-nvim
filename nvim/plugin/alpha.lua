@@ -344,19 +344,32 @@ local dyn_padding = function (seclist)
 
 end
 --]]
-local config = {
-	layout = {
+local full_layout = {
 	  { type = "padding", val = 1 },
           section.header,
-          -- TODO do this programmatically 
-          { type = "padding", val = vim.fn.winheight(0) - 11 - 22 - hlines},
+          { type = "padding", val = 2 },
           section.top_buttons,
           section.mru_cwd,
-          { type = "padding", val = 1},
           section.mru,
+          { type = "padding", val = 1 },
           section.bottom_buttons,
           section.footer,
-	},
+	}
+
+local layout = {}
+  local term_height = vim.api.nvim_win_get_height(0)
+local err_layout = {
+  { type = "text",
+  val = string.format("Terminal is too small (%d lines) to render splasher :(", term_height),
+    opts = { position = "left", hl = "Repeat"},
+  }}
+if term_height < 35 then
+  layout = err_layout
+else
+  layout = full_layout
+end
+local config = {
+	layout = layout,
 	opts = {
 		setup = function()
 		  vim.api.nvim_create_autocmd("User", {
