@@ -7,14 +7,14 @@ local root_files = {
   'flake.nix',
   'default.nix',
   'shell.nix',
-  '.git',
+'.git',
 }
 
 vim.lsp.start {
-  filetypes = { "nix" },
+  filetypes='nix',
   name = 'nixd',
   cmd = { 'nixd' },
   root_dir = vim.fs.dirname(vim.fs.find(root_files, { upward = true })[1]),
   capabilities = require('user.lsp').make_client_capabilities(),
-  settings = { nixd = { formatting = { command = "alejandra" }, }, },
+  settings = { nixd = { formatting = { command = {"nix", "fmt", "."} }, }, },
 }

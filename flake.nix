@@ -5,6 +5,11 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     gen-luarc.url = "github:mrcjkb/nix-gen-luarc-json";
+    alejandra = {
+      url = "github:kamadorueda/alejandra/3.1.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
 
     # Add bleeding-edge plugins here.
     # They can be updated with `nix flake update` (make sure to commit the generated flake.lock)
@@ -62,6 +67,7 @@
       devShells = {
         default = shell;
       };
+      formatter = pkgs.alejandra;
     })
     // {
       # You can add this overlay to your NixOS configuration

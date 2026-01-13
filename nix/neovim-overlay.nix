@@ -46,7 +46,7 @@ with final.pkgs.lib; let
     diffview-nvim # https://github.com/sindrets/diffview.nvim/
     neogit # https://github.com/TimUntersberger/neogit/
     gitsigns-nvim # https://github.com/lewis6991/gitsigns.nvim/
-    vim-fugitive # https://github.com/tpope/vim-fugitive/
+    vim-fugitive # https://g`ithub.com/tpope/vim-fugitive/
     # ^ git integration plugins
     # telescope and extensions
     telescope-nvim # https://github.com/nvim-telescope/telescope.nvim/
@@ -61,10 +61,15 @@ with final.pkgs.lib; let
     alpha-nvim
     catppuccin-nvim 
     # ^ UI
+    
+    conjure # run interpreted code in buffer
     # language support
     vim-ccls
     rustaceanvim
     typescript-tools-nvim
+    markview-nvim
+    markdown-nvim
+    #vim-racket
     cmp-npm
     # ^ language support
     # navigation/editing enhancement plugins
@@ -93,14 +98,15 @@ with final.pkgs.lib; let
 
   extraPackages = with pkgs; [
     # language servers, etc.
-    lua-language-server
+    lua-language-server # what it says on the tin
     nixd # nix LSP
-    pyright
-    alejandra
-    java-language-server
-    ccls
-    superhtml
-    nodejs_23
+    marksman # markdown LSP
+    pyright # Python lsp
+    alejandra # Nix formatter
+    java-language-server # What D'you Think?
+    ccls # C/C++ LSP
+    superhtml # Html LSP
+    nodejs_23 # Needed for JS/TS lsp formatters, etc
   ];
 in {
   # This is the neovim derivation

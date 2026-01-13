@@ -5,6 +5,8 @@ local g = vim.g
 
 -- <leader> key. Defaults to `\`. Some people prefer space.
 g.mapleader = ' '
+g.maplocalleader = g.mapleader
+g.lang_leader = g.mapleader .. 'l' --- my "Language specific" leader: ' l'
 -- g.maplocalleader = ' '
 
 opt.compatible = false

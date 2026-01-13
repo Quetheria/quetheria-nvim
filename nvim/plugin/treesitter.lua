@@ -26,25 +26,26 @@ configs.setup {
       -- Automatically jump forward to textobject, similar to targets.vim
       lookahead = true,
       keymaps = {
-        ['af'] = '@function.outer',
-        ['if'] = '@function.inner',
-        ['ac'] = '@class.outer',
-        ['ic'] = '@class.inner',
-        ['aC'] = '@call.outer',
-        ['iC'] = '@call.inner',
-        ['a#'] = '@comment.outer',
-        ['i#'] = '@comment.outer',
-        ['ai'] = '@conditional.outer',
-        ['ii'] = '@conditional.outer',
-        ['al'] = '@loop.outer',
-        ['il'] = '@loop.inner',
-        ['aP'] = '@parameter.outer',
-        ['iP'] = '@parameter.inner',
+        ['af'] = { query='@function.outer', desc="select outer function" },
+        ['if'] = { query='@function.inner', desc="select inner function" },
+        ['ac'] = { query='@class.outer', desc="select outer class" },
+        ['ic'] = { query='@class.inner', desc="select inner class" },
+        ['aC'] = { query='@call.outer', desc="select outer call" },
+        ['iC'] = { query='@call.inner', desc="select inner call" },
+        ['a#'] = { query='@comment.outer', desc="select outer comment" },
+        ['i#'] = { query='@comment.inner', desc="select inner comment" },
+        ['ai'] = { query='@conditional.outer', desc="select outer conditional" },
+        ['ii'] = { query='@conditional.inner', desc="select inner conditional" },
+        ['al'] = { query='@loop.outer', desc="select outer loop" },
+        ['il'] = { query='@loop.inner', desc="select inner loop" },
+        ['aP'] = { query='@parameter.outer', desc="select outer parameter" },
+        ['iP'] = { query='@parameter.inner', desc="select inner parameter" },
       },
       selection_modes = {
         ['@parameter.outer'] = 'v', -- charwise
+        ['@parameter.inner'] = 'v', -- charwise
         ['@function.outer'] = 'V', -- linewise
-        ['@class.outer'] = '<c-v>', -- blockwise
+        ['@function.inner'] = 'V', -- linewise
       },
     },
     swap = {
