@@ -65,6 +65,7 @@ with final.pkgs.lib; let
     conjure # run interpreted code in buffer
     # language support
     vim-ccls
+    bashls
     rustaceanvim
     typescript-tools-nvim
     markview-nvim
@@ -99,6 +100,7 @@ with final.pkgs.lib; let
   extraPackages = with pkgs; [
     # language servers, etc.
     lua-language-server # what it says on the tin
+    bash-language-server
     nixd # nix LSP
     marksman # markdown LSP
     pyright # Python lsp

@@ -19,6 +19,5 @@ require("nvim-tree").setup({
     dotfiles = true,
   },
 })
-require("barbar").setup()
 require('nvim-surround').setup()
 require("typescript-tools").setup {}

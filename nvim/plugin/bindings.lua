@@ -1,6 +1,4 @@
 
-vim.keymap.set("n", "<PageUp>", ":bprevious<CR>", {noremap = false, silent = true } )
-vim.keymap.set("n", "<PageDown>", ":bnext<CR>", {noremap = false, silent = true } )
 vim.keymap.set("v", "<C-C>", "\"+y", {noremap = false, silent = true })
 
 -- Find files using Telescope command-line sugar.
