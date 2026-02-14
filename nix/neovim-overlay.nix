@@ -65,11 +65,11 @@ with final.pkgs.lib; let
     conjure # run interpreted code in buffer
     # language support
     vim-ccls
-    bashls
     rustaceanvim
     typescript-tools-nvim
     markview-nvim
     markdown-nvim
+    julia-vim
     #vim-racket
     cmp-npm
     # ^ language support
@@ -80,6 +80,7 @@ with final.pkgs.lib; let
     nvim-treesitter-textobjects # https://github.com/nvim-treesitter/nvim-treesitter-textobjects/
     nvim-ts-context-commentstring # https://github.com/joosepalviste/nvim-ts-context-commentstring/
     nvim-tree-lua
+    unicode-vim
     barbar-nvim
     # ^ navigation/editing enhancement plugins
     # Useful utilities

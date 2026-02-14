@@ -1,4 +1,6 @@
 
+vim.keymap.set("n", "<leader>lam", "aƛ", {silent=true, desc="Insert a [lam]bda after the cursor"})
+
 vim.lsp.start {
   filetypes={ 'racket' },
   name = 'racket-langserver',
