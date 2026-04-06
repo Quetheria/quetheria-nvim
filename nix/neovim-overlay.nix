@@ -107,7 +107,7 @@ with final.pkgs.lib; let
     # language servers, etc.
     lua-language-server # what it says on the tin
     bash-language-server
-    nodePackages.typescript-language-server
+    typescript-language-server
     nixd # nix LSP
     marksman # markdown LSP
     pyright # Python lsp
@@ -117,7 +117,7 @@ with final.pkgs.lib; let
     tinymist
     ccls # C/C++ LSP
     superhtml # Html LSP
-    nodejs_23 # Needed for JS/TS lsp formatters, etc
+    nodejs_25 # Needed for JS/TS lsp formatters, etc
   ];
 in {
   # This is the neovim derivation
