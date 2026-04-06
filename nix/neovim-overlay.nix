@@ -29,6 +29,7 @@ with final.pkgs.lib; let
     # plugins from nixpkgs go in here.
     # https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=vimPlugins
     nvim-treesitter.withAllGrammars
+    nvim-lspconfig
     luasnip # snippets | https://github.com/l3mon4d3/luasnip/
     # nvim-cmp (autocompletion) and extensions
     nvim-cmp # https://github.com/hrsh7th/nvim-cmp
@@ -70,6 +71,8 @@ with final.pkgs.lib; let
     markview-nvim
     markdown-nvim
     julia-vim
+    typst-preview-nvim
+    typst-vim
     #vim-racket
     cmp-npm
     # ^ language support
@@ -102,11 +105,14 @@ with final.pkgs.lib; let
     # language servers, etc.
     lua-language-server # what it says on the tin
     bash-language-server
+    nodePackages.typescript-language-server
     nixd # nix LSP
     marksman # markdown LSP
     pyright # Python lsp
     alejandra # Nix formatter
     java-language-server # What D'you Think?
+    typst # typst LSP and compiler
+    tinymist
     ccls # C/C++ LSP
     superhtml # Html LSP
     nodejs_23 # Needed for JS/TS lsp formatters, etc
