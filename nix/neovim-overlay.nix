@@ -16,8 +16,8 @@ with final.pkgs.lib; let
 
   # This is the helper function that builds the Neovim derivation.
   mkNeovim = pkgs.callPackage ./mkNeovim.nix {
-      inherit (pkgs-locked) wrapNeovimUnstable neovimUtils;
-    };
+    inherit (pkgs-locked) wrapNeovimUnstable neovimUtils;
+  };
 
   # A plugin can either be a package or an attrset, such as
   # { plugin = <plugin>; # the package, e.g. pkgs.vimPlugins.nvim-cmp
@@ -62,9 +62,9 @@ with final.pkgs.lib; let
     statuscol-nvim # Status column | https://github.com/luukvbaal/statuscol.nvim/
     nvim-treesitter-context # nvim-treesitter-context
     alpha-nvim
-    catppuccin-nvim 
+    catppuccin-nvim
     # ^ UI
-    
+
     conjure # run interpreted code in buffer
     # language support
     vim-ccls
@@ -117,7 +117,7 @@ with final.pkgs.lib; let
     tinymist
     ccls # C/C++ LSP
     superhtml # Html LSP
-    nodejs_25 # Needed for JS/TS lsp formatters, etc
+    nodejs # Needed for JS/TS lsp formatters, etc
   ];
 in {
   # This is the neovim derivation
